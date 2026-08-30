@@ -2,7 +2,7 @@ extends RigidBody2D
 #extends CharacterBody2D
 @export var block_type: String = ""
 var direction = Vector2.ZERO
-var speed = 150
+var speed = 250
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
