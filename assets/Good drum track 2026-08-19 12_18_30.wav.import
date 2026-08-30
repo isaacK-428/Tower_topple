@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d32atulapc2w4"
+path="res://.godot/imported/Good drum track 2026-08-19 12_18_30.wav-365026a1ea8ab7ca898d83d4f7a2b60e.sample"
+
+[deps]
+
+source_file="res://assets/Good drum track 2026-08-19 12_18_30.wav"
+dest_files=["res://.godot/imported/Good drum track 2026-08-19 12_18_30.wav-365026a1ea8ab7ca898d83d4f7a2b60e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

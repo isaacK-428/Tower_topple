@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://vomlu0ggjtrr"]
+
+[ext_resource type="Script" uid="uid://c3ahxbyxtrwjn" path="res://scripts/start_menu.gd" id="1_4v6gu"]
+[ext_resource type="FontFile" uid="uid://c66vc4muxttfa" path="res://assets/BlackOpsOne-Regular.ttf" id="1_ouf4f"]
+[ext_resource type="Texture2D" uid="uid://c6b6e12cgloyb" path="res://assets/other/pixil-frame-0-2.png" id="2_h61rw"]
+[ext_resource type="Texture2D" uid="uid://deyuqnyck4044" path="res://assets/other/pixil-frame-0-5.png" id="3_fcv5n"]
+[ext_resource type="Texture2D" uid="uid://6wu06pnl03o4" path="res://assets/other/pixil-frame-0-3.png" id="4_4v6gu"]
+[ext_resource type="Texture2D" uid="uid://bpfah32ohi7gu" path="res://assets/other/pixil-frame-0-6.png" id="4_fcv5n"]
+[ext_resource type="Texture2D" uid="uid://cxrfnrs1ady8k" path="res://assets/pixil-frame-0 (3).png" id="7_nxjfj"]
+[ext_resource type="StyleBox" uid="uid://dni5djdk16wk0" path="res://scenes/new_style_box_flat.tres" id="7_u4qax"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uojun"]
+font = ExtResource("1_ouf4f")
+font_size = 46
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ouf4f"]
+font = ExtResource("1_ouf4f")
+font_size = 73
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4qax"]
+bg_color = Color(0.17315847, 0.41485035, 0.5362048, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+shadow_size = 2
+shadow_offset = Vector2(0.42, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5byqq"]
+bg_color = Color(0.065599985, 0.16618654, 0.82, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+shadow_size = 12
+shadow_offset = Vector2(0.42, 0)
+
+[node name="start_menu" type="Control" unique_id=642570621]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4v6gu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=730644073]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.34117648, 0.3882353, 1, 1)
+
+[node name="tower" type="Label" parent="." unique_id=20035855]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 17.0
+offset_right = 202.0
+offset_bottom = 175.0
+text = "Tower
+"
+label_settings = SubResource("LabelSettings_uojun")
+
+[node name="tumble" type="Label" parent="." unique_id=1240594879]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -35.0
+offset_right = 295.0
+offset_bottom = 152.0
+text = "
+Tumble"
+label_settings = SubResource("LabelSettings_ouf4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1960177356]
+texture_filter = 1
+position = Vector2(341, 572)
+scale = Vector2(7.43, 7.43)
+texture = ExtResource("2_h61rw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1838465590]
+texture_filter = 1
+position = Vector2(491, 634)
+scale = Vector2(7.43, 7.43)
+texture = ExtResource("3_fcv5n")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=541969332]
+texture_filter = 1
+position = Vector2(385, 482.00006)
+scale = Vector2(7.43, 7.43)
+texture = ExtResource("4_fcv5n")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=866471604]
+texture_filter = 1
+position = Vector2(385, 482.00006)
+scale = Vector2(7.43, 7.43)
+texture = ExtResource("4_fcv5n")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1732486417]
+texture_filter = 1
+position = Vector2(280, 630)
+scale = Vector2(7.43, 7.43)
+texture = ExtResource("4_fcv5n")
+
+[node name="Sprite2D10" type="Sprite2D" parent="." unique_id=609315388]
+texture_filter = 1
+position = Vector2(497.00006, 367.00003)
+scale = Vector2(7.43, 7.43)
+texture = ExtResource("4_fcv5n")
+
+[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=1040994134]
+texture_filter = 1
+position = Vector2(371, 414)
+scale = Vector2(7.43, 7.43)
+texture = ExtResource("4_fcv5n")
+
+[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=1926723771]
+texture_filter = 1
+position = Vector2(497, 434)
+scale = Vector2(7.43, 7.43)
+texture = ExtResource("4_fcv5n")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=422061658]
+texture_filter = 1
+position = Vector2(585, 246.00003)
+rotation = -1.5707964
+scale = Vector2(7.43, 7.43)
+texture = ExtResource("4_4v6gu")
+
+[node name="start" type="Button" parent="." unique_id=1262869724]
+layout_mode = 0
+offset_left = 668.0
+offset_top = 171.0
+offset_right = 919.0
+offset_bottom = 259.0
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = ExtResource("7_u4qax")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u4qax")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5byqq")
+text = "Start"
+
+[node name="PixilFrame0(3)" type="Sprite2D" parent="." unique_id=1870225585]
+position = Vector2(574, 616)
+scale = Vector2(2.21, 2.21)
+texture = ExtResource("7_nxjfj")
+
+[node name="music" type="HSlider" parent="." unique_id=1224099985]
+layout_mode = 0
+offset_left = 657.0
+offset_top = 358.0
+offset_right = 923.0
+offset_bottom = 433.0
+max_value = 1.0
+step = 0.011
+value = 0.528
+
+[node name="Label" type="Label" parent="." unique_id=706733836]
+layout_mode = 0
+offset_left = 733.0
+offset_top = 366.0
+offset_right = 851.0
+offset_bottom = 389.0
+text = "Master Volume"
+
+[connection signal="pressed" from="start" to="." method="start_pressed"]
+[connection signal="value_changed" from="music" to="." method="_on_music_value_changed"]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c1lfsjrnldhm8"]
+
+[ext_resource type="Texture2D" uid="uid://deyuqnyck4044" path="res://assets/other/pixil-frame-0-5.png" id="1_cjc6i"]
+[ext_resource type="Script" uid="uid://bmtpd6shrdsr4" path="res://scripts/block.gd" id="1_m65d6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lgscf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3wuo"]
+size = Vector2(45.5, 72)
+
+[node name="cabinet" type="RigidBody2D" unique_id=1970511559 groups=["block"]]
+mass = 7.969
+physics_material_override = SubResource("PhysicsMaterial_lgscf")
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_m65d6")
+block_type = "Cabinet"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=715018267]
+texture_filter = 1
+position = Vector2(5, 31)
+scale = Vector2(2.67, 2.67)
+texture = ExtResource("1_cjc6i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331110748]
+position = Vector2(1.25, 0)
+shape = SubResource("RectangleShape2D_v3wuo")

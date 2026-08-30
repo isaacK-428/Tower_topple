@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bocckp3msph7l"]
+
+[ext_resource type="AudioStream" uid="uid://w0sffpqtqgyg" path="res://assets/explosion.wav" id="1_6eoa2"]
+[ext_resource type="Script" uid="uid://dsbrx8o8wxi68" path="res://hit.gd" id="2_gdoi2"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=1535045787]
+stream = ExtResource("1_6eoa2")
+volume_db = -31.018
+autoplay = true
+script = ExtResource("2_gdoi2")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

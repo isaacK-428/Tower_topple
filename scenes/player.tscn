@@ -1,0 +1,288 @@
+[gd_scene format=3 uid="uid://dqlmkmrpw7cr2"]
+
+[ext_resource type="Script" uid="uid://bkg6ii5ah72cr" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cq1t060rotvhm" path="res://assets/Idle/000.png" id="3_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://c8te0m4oags77" path="res://assets/Idle/001.png" id="4_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://ddkpcfu8auwly" path="res://assets/Idle/002.png" id="5_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://ve21a2mi1pr5" path="res://assets/Idle/003.png" id="6_jej6c"]
+[ext_resource type="Texture2D" uid="uid://by4m0735d31gi" path="res://assets/Jump/000.png" id="7_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://dkb5d34chctg5" path="res://assets/other/000.png" id="7_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://4nm1smq04jnu" path="res://assets/Walk/001.png" id="8_oprun"]
+[ext_resource type="Texture2D" uid="uid://c84gi4fwbgnpc" path="res://assets/Walk/002.png" id="9_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://d0sughv80hpj2" path="res://assets/Walk/003.png" id="10_qfm1y"]
+[ext_resource type="PackedScene" uid="uid://bjn1m7fll4mvb" path="res://scenes/background.tscn" id="11_d2wvv"]
+[ext_resource type="FontFile" uid="uid://c66vc4muxttfa" path="res://assets/BlackOpsOne-Regular.ttf" id="12_3v2ag"]
+[ext_resource type="AudioStream" uid="uid://cpfyqgqrvdrfe" path="res://assets/jump.wav" id="13_f1ej7"]
+[ext_resource type="AudioStream" uid="uid://c24jdf8iosvwf" path="res://assets/land2.wav" id="14_a8ls1"]
+[ext_resource type="AudioStream" uid="uid://w0sffpqtqgyg" path="res://assets/explosion.wav" id="14_oprun"]
+[ext_resource type="Texture2D" uid="uid://fppg8rgnvivc" path="res://assets/pixil-frame-0 (3) copy.png" id="16_a8ls1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smehm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_y4r1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d2wvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3v2ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jej6c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_d2wvv")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_f1ej7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_oprun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qfm1y")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
+size = Vector2(17, 26)
+
+[sub_resource type="Gradient" id="Gradient_g2els"]
+offsets = PackedFloat32Array(0, 0.06147541, 0.53688526, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.0627451, 0.0627451, 1, 0.5372549, 0.5372549, 0, 1, 1, 0.24313726, 0.5568628, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qhqgy"]
+gradient = SubResource("Gradient_g2els")
+
+[sub_resource type="Curve" id="Curve_dqkch"]
+_data = [Vector2(0.0033556968, 0), 0.0, 0.0, 0, 0, Vector2(0.54362416, 0.13855422), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qlg0r"]
+curve = SubResource("Curve_dqkch")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tuyoq"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 1)
+spread = 180.0
+initial_velocity_min = 84.619995
+initial_velocity_max = 120.619995
+gravity = Vector3(0, 0, 0)
+scale_min = 8.69
+scale_max = 19.46
+scale_curve = SubResource("CurveTexture_qlg0r")
+color_ramp = SubResource("GradientTexture1D_qhqgy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(18, 28)
+
+[sub_resource type="Curve" id="Curve_d2wvv"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0.01006712, -219.96558), 0.0, 0.0, 0, 0, Vector2(0.96644294, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3v2ag"]
+curve = SubResource("Curve_d2wvv")
+
+[sub_resource type="Curve" id="Curve_jej6c"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f1ej7"]
+curve = SubResource("Curve_jej6c")
+
+[sub_resource type="Curve" id="Curve_oprun"]
+_data = [Vector2(0.016778529, 0.32128513), 0.0, 0.0, 0, 0, Vector2(1, 0.112449765), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a8ls1"]
+curve = SubResource("Curve_oprun")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qfm1y"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(1, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(3, 1, 1)
+angle_min = 177.20001
+angle_max = 420.90002
+angle_curve = SubResource("CurveTexture_3v2ag")
+spread = 72.538
+initial_velocity_min = 30.769999
+initial_velocity_max = 115.39
+gravity = Vector3(0, 0, 0)
+linear_accel_curve = SubResource("CurveTexture_f1ej7")
+scale_max = 16.38
+scale_curve = SubResource("CurveTexture_a8ls1")
+color = Color(0, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_f1ej7"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0.036912754, -72.289185), 0.0, 0.0, 0, 0, Vector2(0.9697987, 198.89844), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oprun"]
+curve = SubResource("Curve_f1ej7")
+
+[sub_resource type="Curve" id="Curve_3v2ag"]
+_data = [Vector2(0, 0.36230636), 0.0, 0.0, 0, 0, Vector2(1, 0.034136534), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jej6c"]
+curve = SubResource("Curve_3v2ag")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d2wvv"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 0.2, 1)
+angle_min = -10.9999895
+angle_max = 22.20001
+angle_curve = SubResource("CurveTexture_oprun")
+gravity = Vector3(0, 0, 0)
+scale_min = 8.8
+scale_max = 16.38
+scale_curve = SubResource("CurveTexture_jej6c")
+color = Color(0.3993323, 0.27772942, 0.16989568, 1)
+
+[node name="player" type="CharacterBody2D" unique_id=1786188198 groups=["player"]]
+script = ExtResource("1_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=141623877]
+texture_filter = 1
+position = Vector2(-1, -17)
+scale = Vector2(1.96, 1.96)
+sprite_frames = SubResource("SpriteFrames_smehm")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=230128986]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_g2brh")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1718986908]
+ignore_rotation = false
+zoom = Vector2(2.05, 2.05)
+
+[node name="Control" type="Control" parent="Camera2D" unique_id=847260769]
+z_index = 26
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Camera2D/Control" unique_id=232458736]
+layout_mode = 0
+offset_left = -276.0
+offset_top = -156.0
+offset_right = -215.0
+offset_bottom = -133.0
+theme_override_fonts/font = ExtResource("12_3v2ag")
+text = "Coins: 0"
+
+[node name="Label2" type="Label" parent="Camera2D/Control" unique_id=869919348]
+layout_mode = 0
+offset_left = -275.0
+offset_top = -132.0
+offset_right = -194.0
+offset_bottom = -109.0
+theme_override_fonts/font = ExtResource("12_3v2ag")
+text = "R = restart"
+
+[node name="restart" type="Button" parent="Camera2D/Control" unique_id=1299440113]
+layout_mode = 0
+offset_left = 167.0
+offset_top = -156.0
+offset_right = 278.0
+offset_bottom = -125.0
+text = "Restart level"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=235167862]
+position = Vector2(0, 14)
+emitting = false
+amount = 1000
+lifetime = 0.11
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_tuyoq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1623930436]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=758788548]
+shape = SubResource("RectangleShape2D_g2els")
+debug_color = Color(0.9407408, 9.241105e-06, 0.6158612, 0.41960785)
+
+[node name="background" parent="." unique_id=1663519217 instance=ExtResource("11_d2wvv")]
+show_behind_parent = true
+z_index = -22
+position = Vector2(0, 7)
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=530242574]
+position = Vector2(0, 14)
+rotation = 1.6179202
+emitting = false
+amount = 40
+lifetime = 0.85
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qfm1y")
+
+[node name="ground_particles" type="GPUParticles2D" parent="." unique_id=1521917452]
+position = Vector2(0, 12)
+amount = 80
+randomness = 0.65
+process_material = SubResource("ParticleProcessMaterial_d2wvv")
+
+[node name="Node" type="Node" parent="." unique_id=1654331564]
+
+[node name="jump" type="AudioStreamPlayer" parent="." unique_id=1887813095]
+stream = ExtResource("13_f1ej7")
+volume_db = -20.982
+
+[node name="land" type="AudioStreamPlayer" parent="." unique_id=1256384640]
+stream = ExtResource("14_a8ls1")
+volume_db = -16.421
+pitch_scale = 0.2
+
+[node name="break_box" type="AudioStreamPlayer" parent="." unique_id=2125588806]
+stream = ExtResource("14_oprun")
+volume_db = -20.526
+
+[node name="Timer" type="Timer" parent="." unique_id=1741911407]
+wait_time = 0.12
+one_shot = true
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=318895643]
+visible = false
+position = Vector2(9, 7)
+rotation = 1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D" unique_id=323227181]
+texture_filter = 1
+position = Vector2(3.000002, -2.9999995)
+rotation = 5.2935834
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("16_a8ls1")
+
+[connection signal="pressed" from="Camera2D/Control/restart" to="." method="_on_restart_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://b5yfnrm2egwci"]
+
+[ext_resource type="Script" uid="uid://d2lesxmdfryye" path="res://scripts/end.gd" id="1_3d26k"]
+[ext_resource type="Texture2D" uid="uid://b355qmhowa2br" path="res://assets/other/ende.png" id="1_mwn6m"]
+[ext_resource type="AudioStream" uid="uid://b33udbd007eib" path="res://assets/win affect.wav" id="3_p7m4f"]
+[ext_resource type="FontFile" uid="uid://c66vc4muxttfa" path="res://assets/BlackOpsOne-Regular.ttf" id="4_bvfni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwn6m"]
+size = Vector2(39, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mwn6m"]
+radius = 4.0
+
+[sub_resource type="Animation" id="Animation_bvfni"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-62, -83)]
+}
+
+[sub_resource type="Animation" id="Animation_s4tl2"]
+resource_name = "win"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-62, -83), Vector2(-62, -100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8hmjt"]
+_data = {
+&"RESET": SubResource("Animation_bvfni"),
+&"win": SubResource("Animation_s4tl2")
+}
+
+[node name="end" type="StaticBody2D" unique_id=310636311]
+script = ExtResource("1_3d26k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1372417748]
+texture_filter = 1
+position = Vector2(-8, 13)
+texture = ExtResource("1_mwn6m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=963117723]
+shape = SubResource("RectangleShape2D_mwn6m")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1818103214]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1558688378]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_mwn6m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1759166819]
+stream = ExtResource("3_p7m4f")
+volume_db = -5.93
+
+[node name="Label" type="Label" parent="." unique_id=396881458]
+offset_left = -62.0
+offset_top = -83.0
+offset_right = 75.0
+offset_bottom = -60.0
+theme_override_colors/font_color = Color(0.34247062, 0.7154348, 0.9754228, 1)
+theme_override_fonts/font = ExtResource("4_bvfni")
+text = "Level complete!	"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=694455254]
+root_node = NodePath("../Label")
+libraries/ = SubResource("AnimationLibrary_8hmjt")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

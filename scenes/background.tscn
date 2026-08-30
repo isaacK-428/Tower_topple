@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bjn1m7fll4mvb"]
+
+[sub_resource type="Gradient" id="Gradient_o5a4c"]
+colors = PackedColorArray(0.37573293, 0.5702254, 1, 1, 0.047058824, 0.6745098, 1, 0.88235295)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bkp1e"]
+gradient = SubResource("Gradient_o5a4c")
+
+[node name="background" type="Node2D" unique_id=1663519217]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=454210323]
+scale = Vector2(21.57, 21.57)
+texture = SubResource("GradientTexture2D_bkp1e")
+
+[node name="Node" type="Node" parent="." unique_id=1561558572]

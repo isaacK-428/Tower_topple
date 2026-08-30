@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://kdw8n5m6qobt"]
+
+[ext_resource type="Script" uid="uid://b2btkqiucaoli" path="res://scripts/break_box.gd" id="1_xrlrg"]
+
+[sub_resource type="Curve" id="Curve_ds7ft"]
+_data = [Vector2(0.09060402, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xrlrg"]
+curve = SubResource("Curve_ds7ft")
+
+[sub_resource type="Curve" id="Curve_j6eba"]
+_data = [Vector2(0, 0.26161784), 0.0, 0.0, 0, 0, Vector2(1, 0.03040731), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mss1c"]
+curve = SubResource("Curve_j6eba")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ju3mw"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 46.149998
+initial_velocity_max = 76.92
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 16.38
+scale_curve = SubResource("CurveTexture_mss1c")
+color = Color(0.62, 0.49600002, 0.372, 1)
+alpha_curve = SubResource("CurveTexture_xrlrg")
+
+[node name="break_box" type="GPUParticles2D" unique_id=767666163]
+emitting = false
+amount = 170
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ju3mw")
+script = ExtResource("1_xrlrg")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

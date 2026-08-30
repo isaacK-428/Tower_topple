@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://vyxxsgplpr3m"]
+
+[ext_resource type="Script" uid="uid://bmtpd6shrdsr4" path="res://scripts/block.gd" id="1_0pkxo"]
+[ext_resource type="Texture2D" uid="uid://bpfah32ohi7gu" path="res://assets/other/pixil-frame-0-6.png" id="1_xu6go"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lgscf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3wuo"]
+size = Vector2(25.5, 24)
+
+[node name="small_box" type="RigidBody2D" unique_id=1970511559 groups=["block"]]
+mass = 1.312
+physics_material_override = SubResource("PhysicsMaterial_lgscf")
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_0pkxo")
+block_type = "Small"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=715018267]
+texture_filter = 1
+position = Vector2(18, 6)
+scale = Vector2(2.67, 2.67)
+texture = ExtResource("1_xu6go")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331110748]
+position = Vector2(0.25, -1)
+shape = SubResource("RectangleShape2D_v3wuo")
