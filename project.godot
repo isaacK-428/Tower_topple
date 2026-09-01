@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-cheese="*uid://5pe12enlk1sx"
+auto_load="*uid://5pe12enlk1sx"
 
 [display]
 

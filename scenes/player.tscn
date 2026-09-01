@@ -15,7 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://cpfyqgqrvdrfe" path="res://assets/jump.wav" id="13_f1ej7"]
 [ext_resource type="AudioStream" uid="uid://c24jdf8iosvwf" path="res://assets/land2.wav" id="14_a8ls1"]
 [ext_resource type="AudioStream" uid="uid://w0sffpqtqgyg" path="res://assets/explosion.wav" id="14_oprun"]
-[ext_resource type="Texture2D" uid="uid://fppg8rgnvivc" path="res://assets/pixil-frame-0 (3) copy.png" id="16_a8ls1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_smehm"]
 animations = [{
@@ -281,7 +280,6 @@ texture_filter = 1
 position = Vector2(3.000002, -2.9999995)
 rotation = 5.2935834
 scale = Vector2(0.63, 0.63)
-texture = ExtResource("16_a8ls1")
 
 [connection signal="pressed" from="Camera2D/Control/restart" to="." method="_on_restart_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

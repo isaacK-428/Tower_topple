@@ -12,6 +12,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		cheese.play_coin()
+		auto_load.play_coin()
 		queue_free()
 		body.coins+=1

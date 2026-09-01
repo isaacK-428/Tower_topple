@@ -4,7 +4,7 @@ var first_level = preload("res://scenes/levels/level.tscn")
 var a = AudioServer.get_bus_index("Master")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cheese.start_menu()
+	auto_load.start_menu()
 	AudioServer.set_bus_volume_db(a,linear_to_db($music.value))
 
 

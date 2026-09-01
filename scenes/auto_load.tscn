@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://5pe12enlk1sx"]
 
-[ext_resource type="Script" uid="uid://dwhescs6koafe" path="res://scripts/cheese.gd" id="1_gv6i6"]
+[ext_resource type="Script" uid="uid://dwhescs6koafe" path="res://scripts/auto_load.gd" id="1_gv6i6"]
 [ext_resource type="AudioStream" uid="uid://c374cetubw7ji" path="res://assets/Electrified 2026-08-15 20_03_11.wav" id="2_xi2t1"]
 [ext_resource type="AudioStream" uid="uid://bdvvqmhbeicry" path="res://assets/dgffafafafafaffa.wav" id="3_kvjqq"]
 [ext_resource type="AudioStream" uid="uid://cycr401ejs4ep" path="res://assets/pickupCoin.wav" id="4_kvjqq"]
@@ -8,7 +8,7 @@
 [node name="cheese" type="Node" unique_id=1306844318]
 script = ExtResource("1_gv6i6")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=257966724]
+[node name="music_player" type="AudioStreamPlayer" parent="." unique_id=257966724]
 stream = ExtResource("2_xi2t1")
 volume_db = -11.404
 
@@ -16,9 +16,9 @@ volume_db = -11.404
 stream = ExtResource("3_kvjqq")
 volume_db = -11.215
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=180675592]
+[node name="coin_player" type="AudioStreamPlayer" parent="." unique_id=180675592]
 stream = ExtResource("4_kvjqq")
 volume_db = -16.808
 
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="music_player" to="." method="_on_audio_stream_player_finished"]
 [connection signal="finished" from="menu" to="." method="_on_menu_finished"]

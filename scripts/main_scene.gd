@@ -13,7 +13,7 @@ var player_scene = preload("res://scenes/player.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	win = false
-	cheese.level()
+	auto_load.level()
 	if final_level == true:
 		pass
 	#player.coins=cheese_coins
@@ -38,7 +38,7 @@ func _on_end_next_level() -> void:
 #func _on_start_emit_position(position: Vector2) -> void:
 	#player.global_position = position
 func end_level():
-	cheese.coins=player.coins
+	auto_load.coins=player.coins
 	if next_level:
 		get_tree().change_scene_to_packed(next_level)
 	else:

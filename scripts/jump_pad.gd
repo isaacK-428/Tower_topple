@@ -11,6 +11,6 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("jumping"):
-		body.jumping()
+	if body.has_method("jump"):
+		body.jump()
 		animated_sprite.play("jump")

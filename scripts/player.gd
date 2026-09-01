@@ -21,7 +21,11 @@ var can_pick_up = false
 var block = null
 var active = true
 var coins: int = 0
-var gun = false
+@onready var jump_sound: AudioStreamPlayer = $jump
+@onready var land: AudioStreamPlayer = $land
+@onready var break_box_sound: AudioStreamPlayer = $break_box
+
+
 func _ready():
 	randomize()
 	active = true
@@ -48,8 +52,8 @@ func _physics_process(delta: float) -> void:
 		if was_in_air:
 			was_in_air = false
 			animation_player.scale = Vector2(2.3,1.96)
-			$land.pitch_scale = randf_range(0.15,0.3)
-			$land.play()
+			land.pitch_scale = randf_range(0.15,0.3)
+			land.play()
 			if pound:
 				pound = false
 				particles.emitting=true
@@ -72,7 +76,7 @@ func _physics_process(delta: float) -> void:
 					collider.break_it()
 					break_I.emitting = true
 					break_I.restart()
-					$break_box.play()
+					break_box_sound.play()
 					var C_I = C.instantiate()
 					add_child(C_I)
 				else:
@@ -90,13 +94,13 @@ func move(delta):
 		if Input.is_action_pressed("go_right"):
 			direction = 1
 		if Input.is_action_just_pressed("jump")&&is_on_floor():
-			velocity.y=JUMP_VELOCITY
-			$jump.play()
-			$jump.pitch_scale = randf_range(0.8,1.2)
+			jump()
+			jump_sound.play()
+			jump_sound.pitch_scale = randf_range(0.8,1.2)
 			jump_particles.emitting = true
 			jump_particles.restart()
 			animation_player.scale = Vector2(2,2.5)
-			jump()
+			jump_animation()
 	if direction!=0:
 		if direction>0:
 			animation_player.flip_h=false
@@ -108,21 +112,21 @@ func move(delta):
 		if is_on_floor():
 			animation_player.play("run")
 		else:
-			jump()
+			jump_animation()
 	else:
 		if is_on_floor():
 			animation_player.play("idle")
 		else:
-			jump()
+			jump_animation()
 	move_and_slide()
-func jump():
+func jump_animation():
 	animation_player.play("jump")
 	
 
-func jumping():
+func jump():
 	animation_player.play("jump")
 	velocity.y=JUMP_VELOCITY
-	$jump.play()
+	jump_sound.play()
 func die():
 	global_position = Vector2(-600,-14)
 	if get_tree():
@@ -130,6 +134,6 @@ func die():
 
 
 func _on_timer_timeout() -> void:
-	coins = cheese.coins
+	coins = auto_load.coins
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()

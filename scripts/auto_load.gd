@@ -1,7 +1,7 @@
 extends Node
-@onready var music: AudioStreamPlayer = $AudioStreamPlayer
+@onready var music: AudioStreamPlayer = $music_player
 @onready var menu: AudioStreamPlayer = $menu
-@onready var coin_player: AudioStreamPlayer = $AudioStreamPlayer2
+@onready var coin_player: AudioStreamPlayer = $coin_player
 var last_song = null
 var if_menu = false
 var songs = [
@@ -13,7 +13,7 @@ var is_playing = false
 var coins: int = 0
 func _ready() -> void:	
 	randomize()
-	last_song = randi_range(0,2)
+	last_song = randi_range(0, 2)
 func _on_audio_stream_player_finished() -> void:
 	is_playing = false
 	level()
